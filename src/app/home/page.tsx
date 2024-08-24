@@ -1,17 +1,23 @@
+'use client'
+
 import React from 'react';
-import Card from '@/components/Card';
-import cardImage from '@/img/cardImage.jpg';
+import { useRouter } from 'next/navigation';
+import landscapesDetails from './landscapesDetails';
+import Link from 'next/link';
 
 const ExamplePage: React.FC = () => {
+  const router = useRouter();
+
+  const handleClick = (landscape: string) => {
+    router.push(`/home/${landscape}`)
+  }
+
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <Card
-        imageSrc={cardImage.src}
-        imageAlt="Sunset in the mountains"
-        title="The Coldest Sunset"
-        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil."
-        tags={['photography', 'travel', 'winter']}
-      />
+    <div className="flex flex-col justify-center items-center h-screen bg-gray-100">
+      <p>Bienvenido! Selecciona una opción:</p>
+      {Object.keys(landscapesDetails).map((landscape) => (
+        <Link href={`/home/${landscape}`}>Ir a {landscape}</Link>
+      ))}
     </div>
   );
 };
