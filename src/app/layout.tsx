@@ -17,8 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
-      <Script src="/service-worker.js" />
+      <body className={inter.className}>{children}
+        <Script src="/service-worker.js" />
+      </body>
     </html>
   );
 }
