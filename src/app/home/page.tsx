@@ -13,10 +13,10 @@ const ExamplePage: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen bg-gray-100">
+    <div className="flex flex-col justify-center items-center h-screen bg-gray-100 dark:bg-black">
       <p>Bienvenido! Selecciona una opción:</p>
       {Object.keys(landscapesDetails).map((landscape) => (
-        <Link href={`/home/${landscape}`}>Ir a {landscape}</Link>
+        <Link key={landscape} href={`/home/${landscape}`}>Ir a {landscape}</Link>
       ))}
     </div>
   );
